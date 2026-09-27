@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --gold: #C9A24B;
+    --gold-light: #DFBF6D;
+    --gold-dark: #A37E30;
+    --bg-dark: #090a0f;
+    --surface-dark: #12141c;
+  }
+  
+  html, body, #root {
+    width: 100%;
+    min-height: 100%;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #090a0f;
+    color: #e5e7eb;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, .font-display, .font-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+/* Custom styling for sleek luxury scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #090a0f;
+}
+::-webkit-scrollbar-thumb {
+  background: #252836;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C9A24B;
+}
+
+/* Glassmorphism utilities */
+.glass-card {
+  background: rgba(18, 20, 28, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(201, 162, 75, 0.18);
+}
+
+.glass-card-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-card-hover:hover {
+  border-color: rgba(201, 162, 75, 0.45);
+  box-shadow: 0 12px 36px -8px rgba(0, 0, 0, 0.6), 0 0 24px -4px rgba(201, 162, 75, 0.15);
+}
+
+/* Glow effects */
+.gold-glow {
+  text-shadow: 0 0 20px rgba(201, 162, 75, 0.4);
+}
+.gold-border-glow {
+  box-shadow: 0 0 25px -5px rgba(201, 162, 75, 0.25);
+}
+
+@keyframes slowAmbientDrift {
+  0% {
+    transform: scale(1.0) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: scale(1.03) translate3d(-0.4%, -0.2%, 0);
+  }
+}
+.animate-slow-ambient-drift {
+  animation: slowAmbientDrift 16s ease-in-out infinite alternate;
+}
+
+@keyframes dashOffset {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+.animate-dash {
+  animation: dashOffset 2.2s linear infinite;
+}
+
+.bg-radial-vignette {
+  background: radial-gradient(circle at center, transparent 40%, rgba(9, 10, 15, 0.6) 80%, #090a0f 100%);
+}
+
+/* Luxury Mega Menu Glassmorphism with deep blur intensity & ambient depth */
+.navbar-mega-menu {
+  background: rgba(6, 7, 11, 0.94);
+  backdrop-filter: blur(52px) saturate(200%) contrast(108%);
+  -webkit-backdrop-filter: blur(52px) saturate(200%) contrast(108%);
+  border-bottom: 1px solid rgba(201, 162, 75, 0.3);
+  box-shadow: 
+    0 45px 120px -10px rgba(0, 0, 0, 0.98),
+    0 20px 40px -15px rgba(0, 0, 0, 0.8),
+    0 0 50px -10px rgba(201, 162, 75, 0.12),
+    inset 0 1px 0 rgba(223, 191, 109, 0.35);
+}
+
+/* Organic Fade-In-Up Keyframe Animation for Mega Menu Category Links */
+@keyframes megaMenuFadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(-10px, 18px, 0) scale(0.96);
+    filter: blur(4px);
+  }
+  65% {
+    filter: blur(0.5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+.navbar-mega-menu .mega-category-link {
+  opacity: 0;
+  transform: translate3d(-10px, 18px, 0) scale(0.96);
+  will-change: transform, opacity, filter;
+  transition: 
+    background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navbar-mega-menu.is-open .mega-category-link,
+.navbar-mega-menu .mega-category-link.is-visible {
+  animation: megaMenuFadeInUp 0.52s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(var(--link-index, 0) * 65ms + 60ms);
+  transition-delay: calc(var(--link-index, 0) * 65ms + 60ms);
+}
+
+

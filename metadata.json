@@ -1,0 +1,6 @@
+{
+  "name": "Miraj Prime Estates - 3D Virtual Walkthrough",
+  "description": "Cinematic scroll-driven 3D virtual house walkthrough and luxury real estate portal for Islamabad, Pakistan.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
